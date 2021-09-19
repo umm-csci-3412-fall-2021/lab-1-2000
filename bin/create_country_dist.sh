@@ -5,7 +5,7 @@ tmpDir=$(mktemp -d)
 
 touch "$tmpDir"/ip_addresses.txt
 
-cat "$wrkDir"/*/failed_login_data.txt | awk 'match($0, /[a-zA-z]+ [0-9]+ [0-9]+ [a-zA-Z0-9]+ ([0-9\.]+)/, groups) {print groups[1]}' >> "$tmpDir"/ip_addresses.txt
+cat "$wrkDir"/*/failed_login_data.txt | awk 'match($0, /[a-zA-z]+ [0-9]+ [0-9]+ [\-\_a-zA-Z0-9]+ ([0-9\.]+)/, groups) {print groups[1]}' >> "$tmpDir"/ip_addresses.txt
 
 touch "$tmpDir"/countCountries.txt
 
