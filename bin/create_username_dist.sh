@@ -11,4 +11,6 @@ touch "$tmpDir"/countNames.txt
 
 sort "$tmpDir"/usernames.txt | uniq -c | awk 'match($0, /([0-9]+) ([a-zA-Z0-9]+)/, groups) {print "data.addRow([\x27" groups[2] "\x27, " groups[1] "]);"}' >> "$tmpDir"/countNames.txt
 
+touch "$wrkDir"/username_dist.html
+
 bin/wrap_contents.sh "$tmpDir"/countNames.txt html_components/username_dist "$wrkDir"/username_dist.html
